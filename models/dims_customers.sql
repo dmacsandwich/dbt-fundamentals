@@ -5,7 +5,7 @@ with customers as (
         first_name,
         last_name
 
-    from `dbt-tutorial`.jaffle_shop.customers
+    from raw.jaffle_shop.customers
 
 ),
 
@@ -17,7 +17,7 @@ orders as (
         order_date,
         status
 
-    from `dbt-tutorial`.jaffle_shop.orders
+    from raw.jaffle_shop.orders
 
 ),
 
@@ -36,6 +36,7 @@ customer_orders as (
 
 ),
 
+
 final as (
 
     select
@@ -50,6 +51,6 @@ final as (
 
     left join customer_orders using (customer_id)
 
-)
+),
 
 select * from final
